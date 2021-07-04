@@ -1,0 +1,36 @@
+{
+  "name": "discord-framework-test",
+  "version": "1.0.0",
+  "description": "Framework testing",
+  "main": "dist/main.js",
+  "repository": "https://github.com/c43721/discord-framework-test.git",
+  "author": "c43721",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "start": "node dist/main.js",
+    "devStart": "nodemon dist/main.js",
+    "dev": "run-s build devStart"
+  },
+  "dependencies": {
+    "@sapphire/decorators": "^2.1.5",
+    "@sapphire/framework": "^1.0.2",
+    "@sapphire/pieces": "^2.1.0",
+    "@sapphire/plugin-logger": "^1.0.13",
+    "@sapphire/utilities": "^1.6.1",
+    "colorette": "^1.2.2",
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@sapphire/ts-config": "^2.3.1",
+    "@types/node": "^16.0.0",
+    "@types/ws": "^7.4.6",
+    "nodemon": "^2.0.9",
+    "npm-run-all": "^4.1.5",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.3.5"
+  }
+}
