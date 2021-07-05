@@ -7,7 +7,7 @@ import type { Guild, User } from 'discord.js';
 
 @ApplyOptions<EventOptions>({ event: Events.CommandSuccess })
 export class CommandSuccessEvent extends Event {
-	public run({ message, command }: CommandSuccessPayload) {
+	run({ message, command }: CommandSuccessPayload) {
 		const shard = this.shard(message.guild?.shardID ?? 0);
 		const commandName = this.command(command);
 		const author = this.author(message.author);
@@ -15,7 +15,7 @@ export class CommandSuccessEvent extends Event {
 		this.context.logger.debug(`${shard} - ${commandName} ${author} ${sentAt}`);
 	}
 
-	public onLoad() {
+	onLoad() {
 		this.enabled = (this.context.logger as Logger).level <= LogLevel.Debug;
 		return super.onLoad();
 	}

@@ -9,7 +9,7 @@ const dev = process.env.NODE_ENV !== 'production';
 export class ReadyEvent extends Event {
 	private readonly style = dev ? yellow : blue;
 
-	public run() {
+	run() {
 		this.printBanner();
 		this.printStoreDebugInformation();
 	}
