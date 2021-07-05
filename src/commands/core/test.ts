@@ -16,7 +16,7 @@ export default class TestCommand extends Command {
 
 		if (isTestFlag) return await msg.channel.send('Args!');
 		
-		return await msg.channel.send("Testing successfull!!");
+		return await msg.channel.send("Testing successfull!");
 	}
 	
 }
