@@ -20,7 +20,7 @@
     "@sapphire/plugin-logger": "^1.0.13",
     "@sapphire/utilities": "^1.6.1",
     "colorette": "^1.2.2",
-    "discord.js": "^12.5.3",
+    "discord.js": "^13.0.0-dev.fe6cc0c.1625227356",
     "dotenv": "^10.0.0",
     "reflect-metadata": "^0.1.13"
   },

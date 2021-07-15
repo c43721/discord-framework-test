@@ -3,14 +3,12 @@ import { ApplyOptions } from "@sapphire/decorators";
 import { Command, CommandOptions } from "@sapphire/framework";
 
 @ApplyOptions<CommandOptions>({
-	name: 'owner',
-	description: 'Owner',
-	preconditions: ["OwnerOnly"]
+    name: "owner",
+    description: "Owner",
+    preconditions: ["OwnerOnly"],
 })
 export default class OwnerCommand extends Command {
-
-	async run(msg: Message) {
-		return await msg.channel.send("Owner only!!");
-	}
-	
+    async run(msg: Message) {
+        return await msg.channel.send("Owner only!!");
+    }
 }
