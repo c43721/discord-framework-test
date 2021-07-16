@@ -1,4 +1,4 @@
-import type { Message } from "discord.js";
+import { Message, MessageActionRow } from "discord.js";
 import { ApplyOptions } from "@sapphire/decorators";
 import { Command, CommandOptions } from "@sapphire/framework";
 
@@ -9,6 +9,12 @@ import { Command, CommandOptions } from "@sapphire/framework";
 })
 export default class OwnerCommand extends Command {
     async run(msg: Message) {
-        return await msg.channel.send("Owner only!!");
+        const row1 = new MessageActionRow().addComponents({
+            customID: "test-btn",
+            type: "BUTTON",
+            style: "PRIMARY",
+            label: "Test button?!",
+        });
+        return await msg.channel.send({ content: "Test", components: [row1] });
     }
 }
