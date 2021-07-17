@@ -3,9 +3,7 @@ import type { EventOptions } from "@sapphire/framework";
 import { Event } from "@sapphire/framework";
 import type { Interaction } from "discord.js";
 
-@ApplyOptions<EventOptions>({
-    event: "interaction",
-})
+@ApplyOptions<EventOptions>({ once: false })
 export class CommandSuccessEvent extends Event {
     async run(interaction: Interaction) {
         if (interaction.isButton()) {
