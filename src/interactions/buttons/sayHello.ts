@@ -6,7 +6,7 @@ import {
 } from "../../lib/InteractionListener";
 
 @ApplyOptions<InteractionCommandOptions>({
-  customId: "say-hello",
+  customId: "test-btn",
 })
 export class HelloButton extends InteractionCommand {
   run(interaction: Interaction) {

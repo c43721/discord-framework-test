@@ -4,6 +4,7 @@ import "@sapphire/plugin-logger/register";
 
 import { Logger, LogLevel, SapphireClient } from "@sapphire/framework";
 import { config } from "dotenv";
+import { InteractionStore } from "./lib/InteractionStore";
 
 config();
 
@@ -15,5 +16,7 @@ const client = new SapphireClient({
   },
   intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "DIRECT_MESSAGES"],
 });
+
+client.stores.register(new InteractionStore());
 
 client.login(process.env.TOKEN);
