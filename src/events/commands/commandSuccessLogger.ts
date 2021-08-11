@@ -6,7 +6,6 @@ import type { Guild, User } from 'discord.js';
 
 export class CommandSuccessEvent extends Listener {
 	run({ message, command }: CommandSuccessPayload) {
-		const t = this.container as any;
 		const shard = this.shard(message.guild?.shardId ?? 0);
 		const commandName = this.command(command);
 		const author = this.author(message.author);
