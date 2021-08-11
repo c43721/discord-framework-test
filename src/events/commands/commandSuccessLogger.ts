@@ -1,22 +1,21 @@
-import { ApplyOptions } from '@sapphire/decorators';
-import type { CommandSuccessPayload, EventOptions } from '@sapphire/framework';
-import { Command, Event, Events, LogLevel } from '@sapphire/framework';
+import { CommandSuccessPayload, Listener } from '@sapphire/framework';
+import { Command, LogLevel } from '@sapphire/framework';
 import type { Logger } from '@sapphire/plugin-logger';
 import { cyan } from 'colorette';
 import type { Guild, User } from 'discord.js';
 
-@ApplyOptions<EventOptions>({ event: Events.CommandSuccess })
-export class CommandSuccessEvent extends Event {
+export class CommandSuccessEvent extends Listener {
 	run({ message, command }: CommandSuccessPayload) {
-		const shard = this.shard(message.guild?.shardID ?? 0);
+		const t = this.container as any;
+		const shard = this.shard(message.guild?.shardId ?? 0);
 		const commandName = this.command(command);
 		const author = this.author(message.author);
 		const sentAt = message.guild ? this.guild(message.guild) : this.direct();
-		this.context.logger.debug(`${shard} - ${commandName} ${author} ${sentAt}`);
+		this.container.logger.debug(`${shard} - ${commandName} ${author} ${sentAt}`);
 	}
 
 	onLoad() {
-		this.enabled = (this.context.logger as Logger).level <= LogLevel.Debug;
+		this.enabled = (this.container.logger as Logger).level <= LogLevel.Debug;
 		return super.onLoad();
 	}
 

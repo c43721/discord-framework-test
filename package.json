@@ -14,18 +14,17 @@
     "dev": "run-s build devStart"
   },
   "dependencies": {
-    "@sapphire/decorators": "^2.1.5",
-    "@sapphire/framework": "^1.0.2",
-    "@sapphire/pieces": "^2.1.0",
-    "@sapphire/plugin-logger": "^1.0.13",
-    "@sapphire/utilities": "^1.6.1",
+    "@sapphire/decorators": "^3.0.0-next.a8baab97.0",
+    "@sapphire/framework": "^2.0.0-next.e9bd6aa3.0",
+    "@sapphire/plugin-logger": "^1.0.14-next.a70738f.0",
+    "@sapphire/utilities": "^2.1.0-next.a8baab97.0",
     "colorette": "^1.2.2",
-    "discord.js": "^13.0.0-dev.fe6cc0c.1625227356",
+    "discord.js": "^13.0.1",
     "dotenv": "^10.0.0",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
-    "@sapphire/ts-config": "^2.3.1",
+    "@sapphire/ts-config": "^3.0.0",
     "@types/node": "^16.0.0",
     "@types/ws": "^7.4.6",
     "nodemon": "^2.0.9",

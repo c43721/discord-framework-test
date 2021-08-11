@@ -1,12 +1,11 @@
 import { ApplyOptions } from "@sapphire/decorators";
-import type { EventOptions } from "@sapphire/framework";
-import { Event, Store } from "@sapphire/framework";
+import { Events, Listener, ListenerOptions } from "@sapphire/framework";
 import { blue, gray, green, magenta, magentaBright, white, yellow } from "colorette";
 
 const dev = process.env.NODE_ENV !== "production";
 
-@ApplyOptions<EventOptions>({ once: true })
-export class ReadyEvent extends Event {
+@ApplyOptions<ListenerOptions>({ once: true })
+export class ReadyEvent extends Listener<typeof Events.ClientReady> {
     private readonly style = dev ? yellow : blue;
 
     run() {
@@ -37,7 +36,7 @@ ${line03}${dev ? ` ${pad}${blc("<")}${llc("/")}${blc(">")} ${llc("DEVELOPMENT MO
     }
 
     private printStoreDebugInformation() {
-        const { client, logger } = this.context;
+        const { client, logger } = this.container;
         const stores = [...client.stores.values()];
         const last = stores.pop()!;
 
@@ -45,7 +44,7 @@ ${line03}${dev ? ` ${pad}${blc("<")}${llc("/")}${blc(">")} ${llc("DEVELOPMENT MO
         logger.info(this.styleStore(last, true));
     }
 
-    private styleStore(store: Store<any>, last: boolean) {
+    private styleStore(store: any, last: boolean) {
         return gray(
             `${last ? "└─" : "├─"} Loaded ${this.style(store.size.toString().padEnd(3, " "))} ${
                 store.name

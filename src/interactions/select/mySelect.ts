@@ -6,12 +6,12 @@ import {
 } from "../../lib/InteractionListener";
 
 @ApplyOptions<InteractionCommandOptions>({
-  customId: "test-btn",
+  customId: "test-select",
 })
-export class UserButton extends InteractionCommand {
+export class HelloButton extends InteractionCommand {
   run(interaction: Interaction) {
-    if (interaction.isButton()) {
-      interaction.reply("From button!!");
+    if (interaction.isSelectMenu()) {
+      interaction.reply("From select!!");
     }
   }
 }
