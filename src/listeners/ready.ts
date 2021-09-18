@@ -1,14 +1,16 @@
 import { ApplyOptions } from "@sapphire/decorators";
-import { Events, Listener, ListenerOptions } from "@sapphire/framework";
+import { ListenerOptions, Events, Listener } from "@sapphire/framework";
 import { blue, gray, green, magenta, magentaBright, white, yellow } from "colorette";
 
 const dev = process.env.NODE_ENV !== "production";
 
-@ApplyOptions<ListenerOptions>({ once: true })
+@ApplyOptions<ListenerOptions>({
+    once: true,
+})
 export class ReadyEvent extends Listener<typeof Events.ClientReady> {
     private readonly style = dev ? yellow : blue;
 
-    run() {
+    async run() {
         this.printBanner();
         this.printStoreDebugInformation();
     }
@@ -28,9 +30,9 @@ export class ReadyEvent extends Listener<typeof Events.ClientReady> {
 
         console.log(
             String.raw`
-${line01} ${pad}${blc("1.0.0")}
+${line01} ${pad}${blc("5.0.0")}
 ${line02} ${pad}[${success}] Gateway
-${line03}${dev ? ` ${pad}${blc("<")}${llc("/")}${blc(">")} ${llc("DEVELOPMENT MODE")}` : ""}
+${line03}${dev ? ` ${pad}${blc("<")}${llc("/")}${blc(">")} ${llc(dev ? "DEVELOPMENT" : "PRODUCTION")}` : ""}
 		`.trim()
         );
     }
