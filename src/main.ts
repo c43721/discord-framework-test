@@ -10,6 +10,7 @@ config();
 
 const client = new SapphireClient({
   defaultPrefix: "!",
+  loadDefaultErrorListeners: true,
   logger: {
     instance: new Logger(LogLevel.Debug),
     level: LogLevel.Debug,
