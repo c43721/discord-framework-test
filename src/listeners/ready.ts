@@ -1,5 +1,5 @@
 import { ApplyOptions } from "@sapphire/decorators";
-import { ListenerOptions, Events, Listener } from "@sapphire/framework";
+import { ListenerOptions, Events, Listener, Store } from "@sapphire/framework";
 import { blue, gray, green, magenta, magentaBright, white, yellow } from "colorette";
 
 const dev = process.env.NODE_ENV !== "production";
@@ -46,7 +46,7 @@ ${line03}${dev ? ` ${pad}${blc("<")}${llc("/")}${blc(">")} ${llc(dev ? "DEVELOPM
         logger.info(this.styleStore(last, true));
     }
 
-    private styleStore(store: any, last: boolean) {
+    private styleStore(store: Store<any>, last: boolean) {
         return gray(
             `${last ? "└─" : "├─"} Loaded ${this.style(store.size.toString().padEnd(3, " "))} ${
                 store.name

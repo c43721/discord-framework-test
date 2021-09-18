@@ -9,7 +9,7 @@ import { InteractionStore } from "./lib/InteractionStore";
 config();
 
 const client = new SapphireClient({
-  defaultPrefix: "pls ",
+  defaultPrefix: "!",
   logger: {
     instance: new Logger(LogLevel.Debug),
     level: LogLevel.Debug,
