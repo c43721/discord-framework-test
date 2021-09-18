@@ -1,5 +1,5 @@
 import { ApplyOptions } from "@sapphire/decorators";
-import type { Interaction } from "discord.js";
+import type { SelectMenuInteraction } from "discord.js";
 import {
   InteractionCommand,
   InteractionCommandOptions,
@@ -9,9 +9,7 @@ import {
   customId: "test-select",
 })
 export class HelloButton extends InteractionCommand {
-  run(interaction: Interaction) {
-    if (interaction.isSelectMenu()) {
-      interaction.reply("From select!!");
-    }
+  run(interaction: SelectMenuInteraction) {
+    interaction.reply("From select!!");
   }
 }

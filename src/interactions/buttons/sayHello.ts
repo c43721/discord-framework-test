@@ -1,5 +1,5 @@
 import { ApplyOptions } from "@sapphire/decorators";
-import type { Interaction } from "discord.js";
+import type { ButtonInteraction } from "discord.js";
 import {
   InteractionCommand,
   InteractionCommandOptions,
@@ -9,9 +9,7 @@ import {
   customId: "test-btn",
 })
 export class UserButton extends InteractionCommand {
-  run(interaction: Interaction) {
-    if (interaction.isButton()) {
-      interaction.reply("From button!!");
-    }
+  run(interaction: ButtonInteraction) {
+    interaction.reply("From button!!");
   }
 }
